@@ -63,21 +63,21 @@ def SHINREV(url):
 			for SHIN in SHINFIL:
 				SHINREP  = SHIN.replace('www.','').replace('ftp.','').replace('images.','').replace('cpanel.','').replace('cpcalendars.','').replace('cpcontacts.','').replace('webmail.','').replace('webdisk.','').replace('hostmaster.','').replace('mail.','').replace('ns1.','').replace('ns2.','')
 				print(Fore.GREEN + '[$] REVERSE ->>' + Fore.WHITE + SHINREP)
-				open('result.txt','a').write('http://'+SHINREP+'\n')
+				open('result_dom.txt','a').write('http://'+SHINREP+'\n')
 			else:
 				print(Fore.RED + '[x] BAD CANT REVERSE :(' + Fore.WHITE)
 	except:
 				pass
 
 def DELETE_DUPLICATE():
-	with open('result.txt', 'r') as SHINXX:
+	with open('result_dom.txt', 'r') as SHINXX:
 		SHINXXX = list(dict.fromkeys(SHINXX.read().splitlines()))
-		with open('result.txt.tmp','a') as new:
+		with open('result_dom.txt.tmp','a') as new:
 			new.write('\n'.join(SHINXXX))
 			new.close()
 		SHINXX.close()
-	os.remove('result.txt')
-	os.rename('result.txt.tmp','result.txt')
+	os.remove('result_dom.txt')
+	os.rename('result_dom.txt.tmp','result_dom.txt')
 
 
 def Main():
